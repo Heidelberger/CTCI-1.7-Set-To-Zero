@@ -1,6 +1,5 @@
 # CTCI 1.7 Set To Zero
-## Cracking the Coding Interview
-### Chapter 1, Problem 1.7
+## Cracking the Coding Interview, Chapter 1, Problem 1.7
 ### Write an algorithm such that if an element in an MxN matrix is 0, its entire row and column are set to 0.
 
 Work in 2 passes. All modifications are in-place.
