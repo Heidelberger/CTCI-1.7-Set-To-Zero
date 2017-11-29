@@ -17,7 +17,7 @@ namespace CTCI_1._7_Set_To_Zero
             Console.WriteLine("Original:");
             PrintArray(array2D_6);
 
-            SetToZero(array2D_6);
+            SetToZero(ref array2D_6);
 
             Console.WriteLine("Modified:");
             PrintArray(array2D_6);
@@ -34,10 +34,10 @@ namespace CTCI_1._7_Set_To_Zero
         //             are checked twice. If zeros are found, then the elements in that 
         //             column and row are set to zero.
         //
-        //             Algorithm requires O(N) space
-        //             All elements are stored in memory once. Edits are in-place.
+        //             Algorithm requires O(1) space
+        //             Memory usage remains constant regardless of input size. Edits are in-place.
         //
-        private static void SetToZero(int[,] array2D_6)
+        private static void SetToZero(ref int[,] array2D_6)
         {
             // if any element in the array is zero, set the entire row and column of that element to zero
 
