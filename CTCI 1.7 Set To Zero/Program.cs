@@ -43,8 +43,8 @@ namespace CTCI_1._7_Set_To_Zero
             // if any element in the array is zero, set the entire row and column of that element to zero
 
             // PASS 1:
-            // skip column 0 and row 0.
-            // if any other element is zero, set column 0 and row 0 to zero.            
+            // skip column 0 and row 0
+            // if any other element is zero, set column 0 and row 0 to zero
             for(int Y_index = 1; Y_index < array2D_6.GetLength(0) - 1; ++Y_index)
             {
                 for (int X_index = 1; X_index < array2D_6.GetLength(0) - 1; ++X_index)
@@ -58,7 +58,8 @@ namespace CTCI_1._7_Set_To_Zero
             }
 
             // PASS 2:
-            // for every column 0 and row 0 that is zero, set the entire row or column to zero
+            // check column 0 and row 0 for zeroes
+            // if found, set the row or column to zero
             for (int index = array2D_6.GetLength(0) - 1; index >= 0; --index)
             {
                 if (array2D_6[index, 0] == 0)
