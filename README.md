@@ -8,4 +8,4 @@ Complexity:
 
 Algorithm runs in O(N) time. Every element is touched once to check for zero. Column-0 and Row-0 are checked twice. If zeros are found, then the elements in that column and row are set to zero.
 
-Algorithm requires O(N) space. All elements are stored in memory once. Edits are in-place.
+Algorithm requires O(1) space. Memory usage remains constant regardless of input size. Edits are in-place.
