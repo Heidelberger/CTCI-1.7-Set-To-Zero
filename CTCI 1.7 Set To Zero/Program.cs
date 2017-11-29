@@ -27,7 +27,7 @@ namespace CTCI_1._7_Set_To_Zero
             Console.ReadLine();
         }
 
-        /////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////
         //        
         // Work in 2 passes.  All modifications are in-place.
         //
