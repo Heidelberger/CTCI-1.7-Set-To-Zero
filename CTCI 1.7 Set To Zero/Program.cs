@@ -12,7 +12,7 @@ namespace CTCI_1._7_Set_To_Zero
         {
             PrintHeaderMsg(1, 7, "Set to Zero");
 
-            int[,] array2D_6 = new int[6, 6] { { 12, 42, 67, 4, 28, 5 }, { 10, 0, 12, 13, 14, 15 }, { 20, 21, 22, 23, 0, 25 }, { 30, 31, 32, 33, 34, 35 }, { 40, 0, 42, 43, 44, 45 }, { 50, 51, 52, 53, 54, 55 } };
+            int[,] array2D_6 = new int[6, 6] { { 3, 0, 67, 4, 28, 5 }, { 10, 8, 12, 13, 14, 15 }, { 20, 21, 22, 23, 0, 25 }, { 30, 31, 32, 33, 34, 35 }, { 40, 6, 42, 43, 44, 45 }, { 50, 51, 52, 53, 54, 55 } };
 
             Console.WriteLine("Original:");
             PrintArray(array2D_6);
@@ -30,8 +30,9 @@ namespace CTCI_1._7_Set_To_Zero
         // Work in 2 passes.  All modifications are in-place.
         //
         // Complexity: Algorithm runs in O(N) time
-        //             Every element is touched once to check for zero.  If zeros are found, then 
-        //             the elements in that column and row are set to zero.
+        //             Every element is touched once to check for zero. Column-0 and Row-0
+        //             are checked twice. If zeros are found, then the elements in that 
+        //             column and row are set to zero.
         //
         //             Algorithm requires O(N) space
         //             All elements are stored in memory once. Edits are in-place.
@@ -40,7 +41,30 @@ namespace CTCI_1._7_Set_To_Zero
         {
             // if any element in the array is zero, set the entire row and column of that element to zero
 
+
             // PASS 1:
+            // check column 0 and row 0 for any zeroes
+            bool Y_ToZero = false;
+            bool X_ToZero = false;
+            for (int i = 0; i < array2D_6.GetLength(0); ++i)
+            {
+                if (array2D_6[i,0] == 0)
+                {
+                    X_ToZero = true;
+
+                    if (Y_ToZero == true)
+                        break;
+                }
+                if (array2D_6[0,i] == 0)
+                {
+                    Y_ToZero = true;
+
+                    if (X_ToZero == true)
+                        break;
+                }
+            }
+
+            // PASS 2:
             // skip column 0 and row 0
             // if any other element is zero, set column 0 and row 0 to zero
             for(int Y_index = 1; Y_index < array2D_6.GetLength(0) - 1; ++Y_index)
@@ -55,7 +79,7 @@ namespace CTCI_1._7_Set_To_Zero
                 }
             }
 
-            // PASS 2:
+            // PASS 3:
             // check column 0 and row 0 for zeroes
             // if found, set the row or column to zero
             for (int index = array2D_6.GetLength(0) - 1; index >= 0; --index)
@@ -74,6 +98,23 @@ namespace CTCI_1._7_Set_To_Zero
                     {
                         array2D_6[i,index] = 0;
                     }
+                }
+            }
+
+            // PASS 4:
+            // if column 0 or row 0 had a zero, set it to zero
+            if (X_ToZero == true)
+            {
+                for (int i = 0; i < array2D_6.GetLength(0); ++i)
+                {
+                    array2D_6[i, 0] = 0;
+                }
+            }
+            if (Y_ToZero == true)
+            {
+                for (int i = 0; i < array2D_6.GetLength(0); ++i)
+                {
+                    array2D_6[0, i] = 0;
                 }
             }
         }
